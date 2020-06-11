@@ -1,0 +1,17 @@
+- DB 연결 웹 애플리케이션 소개 
+  - Backend
+    - 데이터를 관리하기 위해 DB를 이용해야 함
+    - MySQL DB 사용 
+    - 자바에선 JDBC라고 함 => Spring JDBC
+    - JSP, 서블릿
+    - 실제 JSP는 서블릿으로 바뀌어서 동작함
+      - 쓰는 방법이 다를 뿐 동작은 서블릿과 같다고 생각하면 됨
+      - forward, redirect, 4개의 scope, jsp의 내장 객체 등 
+    - 자바에서 DB 사용하는 JDBC, 이것을 Spring Frameworkㄹ 이용하는 Spring JDBC 등이 중요 키워드가 될 수 있음
+    - JSP의 라이프사이클 이해, redirect & forward와 scope
+    - JSTL, EL을 사용 가능
+    - DB -> SQL
+    - Maven , JDBC, Web API
+  - FrontEnd
+    - JAVAscript 
+    - DOM, Browser, Event, Ajax

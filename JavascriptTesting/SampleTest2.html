@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Set Comma Test Suite</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="qunit.css" type="text/css" media="screen">
+       
+    </head>
+    <body>
+        <div id="qunit"></div>
+        <div id="qunit-fixture">test markup2</div>
+        <script type="text/javascript" src="qunit.js"></script>
+
+        <script type="text/javascript">
+            let Bank = {
+                "amount": 0,
+                "deposit": function(amount) {
+                    this.amount = this.amount + amount;
+                },
+                "withdraw" : function (amount) {
+                    this.amount = this.amount - amount;
+                },
+                "getAmount" : function() {
+                    return this.amount;
+                },
+                "setAmount" : function(amount) {
+                    this.amount = amount;
+                }
+            };
+        </script>
+
+        <script type="text/javascript">
+            QUnit.test("입금 테스트", function(assert){
+                Bank.setAmount(0);
+                Bank.deposit(10);
+                assert.ok(Bank.getAmount() === 10,"10 입금");
+            });
+            QUnit.test("출금 테스트", function(assert){
+                Bank.setAmount(10);
+                Bank.withdraw(10);
+                assert.ok(Bank.getAmount() === 0,"10 출금");
+            });
+        </script>
+    </body>
+</html>

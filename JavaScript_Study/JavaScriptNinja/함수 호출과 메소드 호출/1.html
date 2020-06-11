@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <ul id="results"></ul>
+        <script type="text/javascript">
+            function assert(value, desc){
+            var li = document.createElement('li');
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+            }
+        </script>
+        <script type="text/javascript">
+            function creep() {
+                return this;
+            }
+
+            assert(creep() === window, "창문에서 살살 기어가고 있음");
+
+            var sneak = creep;
+
+            assert(sneak() === window, "창문에서 살살 기어가고 있음");
+
+            var ninja1 = {
+                skulk : creep
+            };
+
+            assert(ninja1.skulk() === ninja1, "첫 번째 닌자가 숨어있다.");
+            
+            var ninja2 = {
+                skulk: creep
+            };
+
+            assert(ninja2.skulk() === ninja2, "두 번째 닌자가 숨어있다.");
+
+        </script>
+</body>
+</html>

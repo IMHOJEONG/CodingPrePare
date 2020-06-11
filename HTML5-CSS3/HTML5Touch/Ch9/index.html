@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1>A Simple Switch</h1>
+    <h2>
+      Power: <span id="status">OFF</span>
+      <h2>
+        <form action="/power">
+          <label for="power">Power:</label>
+
+          <div class="switchwrap">
+            <div class="switch"></div>
+            <input type="checkbox" id="power" />
+          </div>
+          <p><input type="submit" value="Submit" /></p>
+        </form>
+      </h2>
+    </h2>
+    <ul>
+      <li>
+        <!-- each thumbnail looks like this -->
+        <a
+          class="slidelink"
+          href="http://www.flickr.com/photos/steveberardi/7819216372"
+        >
+          <img
+            data-flickr-url="http://www.flickr.com/photos/steveberardi/7819216372"
+            alt="Black-Chinned Hummingbird"
+            data-full-height="495"
+            data-full-width="640"
+            src="http://farm9.staticflickr.com/8287/7819216372_f189440d20_q.jpg"
+            height="75"
+            width="75"
+          />
+        </a>
+      </li>
+      <!-- additional thumbnails follow the same format -->
+    </ul>
+    <script type="text/javascript">
+      document.body.className = "js";
+    </script>
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="results"></ul>
+        <script type="text/javascript">
+            function assert(value, desc){
+            var li = document.createElement('li');
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+            }
+        </script>
+        <script type="text/javascript">
+            function juggle() {
+                var result = 0;
+                for ( var n = 0; n < arguments.length ; n++){
+                    result += arguments[n];
+                }
+                this.result = result;
+            }
+
+            var ninja1 = {};
+            var ninja2 = {};
+
+            juggle.apply(ninja1, [1,2,3,4]);
+            juggle.call(ninja2, 1,2,3,4);
+
+            assert(ninja1.result === 10, "apply를 사용하여 처리함");
+            assert(ninja2.result === 26, "call을 사용하여 처리함");
+        </script>
+</body>
+</html>

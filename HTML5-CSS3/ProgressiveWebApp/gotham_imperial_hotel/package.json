@@ -1,0 +1,31 @@
+{
+  "name": "gotham_imperial_hotel",
+  "version": "1.0.0",
+  "description": "Sample project for the book Building Progressive Web Apps with Service Workers",
+  "license": "MIT",
+  "author": "Tal Ater <tal@talater.com> (https://www.talater.com/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TalAter/gotham_imperial_hotel.git"
+  },
+  "scripts": {
+    "start": "grunt serve",
+    "test": "grunt"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "grunt-cli": "^1.2.0",
+    "qs": "^6.9.1"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "grunt": "^1.0.4",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-eslint": "^19.0.0",
+    "grunt-express-server": "^0.5.3",
+    "lodash": "^4.17.15",
+    "lowdb": "^0.13.1",
+    "moment": "^2.24.0",
+    "web-push": "^3.1.0"
+  }
+}

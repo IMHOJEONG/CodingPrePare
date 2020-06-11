@@ -1,0 +1,46 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<!-- 
+    link rel="import" 는 html 파일을 불러오는 기본 방식, 우선 상단에 사용할 컴포넌트를 추가해야 함 
+    기본적으로 polymer-element를 임포트하고 + iron-icon 컴포넌트도 임포트 해보자 
+ -->
+
+<dom-module id="icon-toggle">
+    <!-- snake 구문 형태로 id를 정의 -->
+    <template>
+        <!-- template 시작 -->
+        <style>
+            /* shadow DOM의 스타일을 구현하는 부분, :host는 이 엘리먼트의 루트를 가리킴 */
+        :host{
+            display: inline-block;
+        }
+        </style>
+        <!-- 마크업 구현 -->
+        <span>Not much here yet.</span>
+    </template>
+    <script>
+        // 코드로 이 엘리먼트를 등록하는 부분, ES6를 이용하여 구현한다. 
+        class IconToggle extends Polymer.Element {
+            // 폴리머 기본 컴포넌트를 상속받는다.
+            static get is() {
+                    return "icon-toggle";
+                }
+                // 이 요소의 이름을 반환하기 위한 구문, 위의 ID이름과 일치해야 함 
+
+            constructor() {
+                    super();
+                } // 각 요소는 생성자가 있다. 
+        }
+        customElements.define(IconToggle.is, IconToggle);
+        // 커스텀 엘리먼트 API를 사용하여 이 엘리먼트를 등록하는 부분
+    </script>
+</dom-module>
+<!-- 
+    dom-module 태그로 html 파일을 감싸서 쉐도우 돔 템플릿 형태로 만든다. => 이 템플릿 안에는 DOM 구조 및 스타일이 포함됨.
+    **** camel case, snake case에 대한 용법 주의
+    컴포넌트의 명칭은 camel case ex) IconToggle
+    id 이름의 경우는 snake case ex) icon-toggle
+    을 사용함.
+    이름 외에도, 이벤트 핸들러나 값을 전달할 경우에는 snake case를 사용하고 값을 받는 경우에는 camel case를 사용합니다.
+    
+ -->

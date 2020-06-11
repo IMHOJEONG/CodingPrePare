@@ -1,0 +1,15 @@
+{
+  "name": "pwa-youtube",
+  "main": "index.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0",
+    "app-layout": "PolymerElements/app-layout#^3.0.2",
+    "app-route": "PolymerElements/app-route#^3.0.2",
+    "iron-pages": "PolymerElements/iron-pages#^3.0.1",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#^3.0.1"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+  }
+}
