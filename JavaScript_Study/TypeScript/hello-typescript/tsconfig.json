@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "sourceMap":true
+    }
+    // "files": [
+    //     "src/file1.ts",
+    //     "src/file2.ts"
+    // ],
+    // "include": [
+    //     "src/**/*"
+    // ],
+    // "exclude": [
+    //     "node_modules",
+    //     "**/*.spec.ts"
+    // ]
+}

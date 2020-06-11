@@ -1,0 +1,96 @@
+<html>
+    <head>
+            
+            <style>
+                    #results li.pass { color: green;}
+                    #results li.fail { color: red;}
+                </style>
+
+    </head>
+    <body>
+        <ul id="results"></ul>
+        <script type="text/javascript">
+            function assert(value, desc){
+            var li = document.createElement('li');
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+            }
+        
+        
+            function isNimble(){return true;} 
+            // 이름이 지정된 함수를 정의 -> 이 이름은 현재 유효 범위 전체에서 사용 가능 & 암묵적으로 window의 프로퍼티로 추가됨
+        
+            assert(typeof window.isNimble === "function", "isNimble 정의됨");
+            // window 객체에 프로퍼티가 만들어졌는지를 확인 
+        
+            assert(isNimble.name === "isNimble", "isNimble()에는 이름이 있음");
+            // 함수의 name 프로퍼티에 값리 기록되었는지를 확인
+        
+            var canFly = function(){ return true;};
+            // 익명 함수를 생성하고 canFly 변수에 할당, canFly 변수는 window의 프로퍼티 & 함수의 name 프로퍼티는 빈 값
+        
+            assert(typeof window.canFly === "function", "canFly() 정의됨");
+            // canFly 변수가 익명 함수를 참조하고 있는지 확인 & name 프로퍼티가 빈 문자열(null이 아니라)로 설정되어 있는지를 확인
+        
+            assert(canFly.name === "", "canFly()에는 이름이 없음.");
+        
+            window.isDeadly = function(){ return true; };
+            // window의 프로퍼티에 익명 함수를 만듬
+        
+            assert(typeof window.isDeadly === "function", "isDeadly() 정의됨"); 
+            // 프로퍼티가 함수를 참조하고 있는지 테스트함
+            // 함수의 name 프로퍼티가 빈 값인지도 테스트 할 수 있을 것(생략)
+        
+            function outer(){
+            // outer 함수 내부에 inner 함수를 정의
+            // inner()를 정의한 위치의 앞과 뒤에서 inner()를 참조할 수 있는지 테스트함
+            // 그리고 전역 유효 범위에 inner()에 대한 참조가 생성되지 않았는지 테스트함
+        
+                assert(typeof inner === "function", "inner 함수가 정의된 위치 앞쪽에서 inner()는 유효함");
+        
+                function inner(){}
+                    
+                assert(typeof inner === "function", "inner 함수가 정의된 위치 뒤쪽에서 inner()는 유효함");
+                
+                assert(window.inner === undefined, "전역 유효 범위에 inner()는 없음");
+        
+            }
+        
+            outer();
+        
+            assert(window.inner === undefined, "inner()는 전역 유효 범위에 없음");
+            // 전역 유효 범위에서 outer()를 참조할 수 있는지 테스트함
+            // 하지만 inner()는 그렇지 않아야 한다.
+        
+            window.wieldsSword = function swingsSword() { return true; };
+            // 함수의 name 프로퍼티 값은 그 함수를 할당한 변수의 이름과는 아무 관련이 없음 
+            // 오직 함수 리터럴에서 사용한 이름에 의해 결정됨
+        
+            assert(window.wieldsSword.name === 'swingsSword', "wieldSword의 실제 이름은 swingsSword이다.");
+        
+            /*
+                 window.isNimble은 함수로 정의됨 => 이름을 가진 함수는 window 객체의 프로퍼티로 추가된다는 것을 증명
+                 
+                 이름이 지정된 함수 isNimble()의 name 프로퍼티 값은 isNimble이다.
+
+                 window.canFly는 함수로 정의되었고, 이 전역 변수(함수를 참조하고 있더라도)는 결국 window에 속해있음
+                 
+                 canFly에 할당된 익명 함수의 name 프로퍼티 값은 빈 문자열이다
+
+                 window.isDeadly는 함수로 정의됨.
+
+            */
+
+            /*
+                지역 유효 범위에 선언된 함수에 대한 검증 => inner 함수가 전역 유효 범위에 생성되지 않았다는 것을 증명 
+
+                inner 함수를 outer 함수 안에서 미리 참조할 수 있다는 사실은 매우 놀라움
+                    => 함수를 선언했을 때 해당 함수를 사용할 수 있는 유효 범위는 어디까지인가?
+
+            */
+        </script>
+
+        
+    </body>
+</html>

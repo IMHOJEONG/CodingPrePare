@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="results"></ul>
+    <script type="text/javascript">
+        function assert(value, desc){
+        var li = document.createElement('li');
+        li.className = value ? "pass" : "fail";
+        li.appendChild(document.createTextNode(desc));
+        document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <script type="text/javascript">
+        var ninja = function myNinja() {
+            assert(ninja == myNinja, "이 함수는 동시에 두 가지 이름을 갖고 있다.");
+        };
+
+        ninja();
+
+        assert(typeof myNinja == "undefined", "myNinja는 해당 인라인 함수의 외부에서는 사용할 수 없다.");
+    </script>
+</body>
+</html>

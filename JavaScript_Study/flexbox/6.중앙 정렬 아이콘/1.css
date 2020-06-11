@@ -1,0 +1,11 @@
+.wrap{
+    display:flex;
+    flex-direction: colmn;
+    height:100%;
+}
+
+.icon_360{
+    margin: auto;
+    font-size: 50px;
+    border: 1px solid black;
+}

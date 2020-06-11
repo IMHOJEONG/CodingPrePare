@@ -1,0 +1,24 @@
+.container {
+  padding: 0 10px;
+}
+
+.nav-li {
+  width: auto;
+}
+
+.sidebar {
+  position: relative;
+  /* 흐름을 되돌림?? */
+  top: 0;
+  width: auto;
+  padding: 0;
+  text-align: center;
+}
+
+.header .title {
+  text-align: center;
+}
+
+.main {
+  margin: 0;
+}

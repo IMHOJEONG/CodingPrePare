@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Set Comma Test Suite</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="qunit.css" type="text/css" media="screen">
+       
+    </head>
+    <body>
+        <div id="qunit"></div>
+        <div id="qunit-fixture">test markup</div>
+        <script type="text/javascript" src="qunit.js"></script>
+
+        <script type="text/javascript">
+            // function setComma(num){
+            //     let num2 = num + "";
+            //     if(num2.length > 3) {
+            //         return num2.replace(/(\d{3})$/,",$1");
+            //     }
+            //     else{
+            //         return num2;
+            //     }
+            // }
+            // function setComma(num) {
+            //     let num2 = num + "";
+            //     if(num2.length <= 3){
+            //         return num2;
+            //     }
+            //     else if(num2.length === 4) {
+            //         return num2.substr(0,1) + "," + num2.substr(1,3);
+            //     }
+            //     else if(num2.length === 5) {
+            //         return num2.substr(0,2) + "," + num2.substr(2,3);
+            //     }
+            //     else if(num2.length === 6) {
+            //         return num2.substr(0,3) + "," + num2.substr(3,3);
+            //     }
+                
+            // }
+
+            // function setComma(num) {
+            //     let num2 = num+"";
+            //     if(num2.length <= 3){
+            //         return num2;
+            //     }
+            //     else if(num2.length > 3 && num2.length < 7){
+            //         let mod = num2.length%3;
+            //         mod = mod === 0 ? 3 : mod;
+            //         return num2.substr(0,mod) +"," + num2.substr(mod,3);
+            //     }
+            //     else if(num2.length >= 7 && num2.length <= 9){
+            //         let mod = num2.length % 3;
+            //         mod = mod === 0 ? 3 : mod;
+            //         return num2.substr(0, mod) + ","+ num2.substr(mod,3) +","+num2.substr(mod+3, 3);
+            //     }
+            //     else if(num2.length >= 10 && num2.length <= 12)
+            //     {
+            //         let mod = num2.length % 3;
+            //         mod = mod === 0 ? 3: mod;
+            //         return num2.substr(0, mod) + "," +num2.substr(mod, 3)+","+num2.substr(mod+3, 3)+","+num2.substr(mod+6,3);
+            //     }
+            // }
+
+            function setComma(num){
+                let num2 = num + "";
+                if(num2.length <=3){
+                    return num2;
+                }
+                else{
+                    let len = num2.length;
+                    let mod = len%3;
+                    mod = mod === 0 ? 3 : mod;
+                    let count = (len-mod)/3;
+                    let returnVal = "";
+                    returnVal += num2.substr(0, mod);
+                    for(let i=0;count > i ;i++){
+                        returnVal += ","+num2.substr(mod +(3*i), 3);
+                    }
+                    return returnVal;
+                }
+            }
+
+        </script>
+
+        <script type="text/javascript">
+            QUnit.test("세 자리 이하인 경우는 매개변수를 바로 반환한다." , function(assert){
+                assert.ok(setComma(1) === "1", "한 자리는 그냥 반환된다.");
+                assert.ok(setComma(11) === "11", " 두자리는 그냥 반환한다." );
+                assert.ok(setComma(111) === "111", "세 자리는 바로 반환한다.");
+            });
+
+            QUnit.test("세 자리가 넘는 경우 세 자리마다 쉼표를 넣는다." , function(assert) {
+                assert.ok(setComma(1234)==="1,234", "세 자리가 넘는 경우 쉼표를 표시한다.");
+                assert.ok(setComma(12345) === "12,345", "5자리도 세 자리 간격으로 쉼표가 표시된다.");
+                assert.ok(setComma(123456) === "123,456", "6자리도 세 자리 간격으로 쉼표가 표시된다.");
+                assert.ok(setComma(1234567) === "1,234,567", "7자리는 쉼표가 2개가 표시됨 ");
+                assert.ok(setComma(12345678) === "12,345,678", "8자리는 쉼표가 2개가 표시됨");
+                assert.ok(setComma(123456789) === "123,456,789", "9자리는 쉼표가 2개가 표시된다.");
+                assert.ok(setComma(1234567891) === "1,234,567,891","10자리는 쉼표가 3개가 표시된다.");
+                assert.ok(setComma(12345678912) === "12,345,678,912","11자리는 쉼표가 3개가 표시된다.");
+                assert.ok(setComma(123456789123) === "123,456,789,123", "12자리는 쉼표가 3개가 표시된다.");
+            });
+        </script>
+    </body>
+</html>
