@@ -1,5 +1,11 @@
 # Django Self Study
 
+```shell
+    source myvenv/bin/activate
+```
+- 분리한 개발환경을 실행하는 부분 
+
+
 ```python
     from django.conf import settings
 ```
@@ -38,4 +44,34 @@
     python manage.py migrate blog
 ```
 - 실제 데이터베이스에 모델 추가를 반영 => 글 모델이 데이터베이스에 저장됨 
-`
+
+# Django 관리자
+
+- LANGUAGE_CODE = 'en-us' => 'ko'로 변경 : 관리자 화면을 한국어로 변경 가능
+
+- 모델링한 글들을 관리자에서 추가, 수정, 삭제 가능 
+
+```python
+    from django.contrib import admin
+    from .models import Post
+
+    admin.site.register(Post)
+```
+- 앞 장에서 정의했던 Post 모델을 가져오고 있음 
+- 관리자 페이지에서 만든 모델을 보려면 `admin.site.register(Post)`로 모델을 등록해야 함 
+
+- 로그인 하기 위해선, 모든 권한을 가지는 슈퍼 사용자가 필요 
+```python
+    python manage.py createsuperuser
+```
+
+# 배포 
+- 애플리키에션을 인터넷에 올려 다른 사람들도 볼 수 있게 하는 것 
+- pythonAnywhere를 사용할 것 
+
+- db.sqlite3 : 모든 게시물이 저장된 로컬 데이터베이스
+    - pythonAnywhere는 다른 데이터 베이스를 사용하기 때문에 저장소에 추가될 필요 X
+    - 다른 데이터베이스로는 SQLite로도 사용하지만 보통은 SQLite보다 휠씬 많은 방문자를 보유한 웹사이트의 경우 => MySQL을 사용함 
+    - GitHub 저장소에 SQLite 데이터베이스를 제외하고 저장하면, 지금까지 작성한 모든 게시물을 로컬에서만 사용 가능 
+        - 다시 새 데이터베이스를 추가해야 함 
+    - 로컬 데이터베이스는 데이터가 삭제되어도 괜찮은 테스트 공간으로만 사용하자
