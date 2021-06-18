@@ -20,10 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const db = require("./app/models");
 const Role = db.role;
 
-
-// mongodb+srv://39ghwjd:!!95dlfwls@cluster0.q23ww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 db.mongoose
-//   .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
   .connect(`mongodb+srv://ssafy:ssafy@cluster0.q23ww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
     `, {
     useNewUrlParser: true,
