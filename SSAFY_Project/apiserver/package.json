@@ -1,0 +1,24 @@
+{
+  "name": "apiservers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "canvas": "^2.8.0",
+    "delay": "^5.0.0",
+    "desktop-screenshot": "^0.1.1",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "image-downloader": "^4.0.2",
+    "mysql": "^2.18.1",
+    "selenium-webdriver": "^4.0.0-beta.3",
+    "sharp": "^0.28.3"
+  }
+}
